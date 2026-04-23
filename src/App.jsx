@@ -1,8 +1,18 @@
+import Hero from './components/sections/Hero'
+import About from './components/sections/About'
+import Projects from './components/sections/Projects'
+import Skills from './components/sections/Skills'
+import Contact from './components/sections/Contact'
+
 function App() {
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
-      <h1 className="text-4xl font-bold p-8">Portfolio en construcción</h1>
-    </div>
+    <main className="bg-gray-950 text-white min-h-screen">
+      <Hero />
+      <About />
+      <Projects />
+      <Skills />
+      <Contact />
+    </main>
   )
 }
 
