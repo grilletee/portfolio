@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { ArrowDown, Github, Mail, Linkedin } from "lucide-react"
+import { Github, Mail, Linkedin } from "lucide-react"
 
 const roles = [
   "Full Stack Developer",
@@ -46,7 +46,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 pt-16 overflow-hidden"
     >
       <div
         className={`relative z-10 w-full transition-all duration-1000 ${
@@ -108,7 +108,7 @@ export default function Hero() {
             <Mail size={22} />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/guillermo-sanchez-gutierrez/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-violet-400 transition-colors"
@@ -116,10 +116,6 @@ export default function Hero() {
             <Linkedin size={22} />
           </a>
         </div>
-      </div>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-600 animate-bounce">
-        <ArrowDown size={20} />
       </div>
     </section>
   )
