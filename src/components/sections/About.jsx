@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { Code2, Cpu, Brain, Rocket } from "lucide-react"
+import { useMagneticHover } from "../../hooks/useMagneticHover"
 
 const cards = [
   {
@@ -37,6 +38,7 @@ const cards = [
 ]
 
 function AnimatedCard({ card, index }) {
+  const magnetic = useMagneticHover(10)
   const ref = useRef(null)
   const [visible, setVisible] = useState(false)
 
@@ -53,29 +55,33 @@ function AnimatedCard({ card, index }) {
 
   return (
     <div
-      ref={ref}
-      className="group relative rounded-2xl p-6 transition-all duration-700"
+      ref={(el) => {
+        ref.current = el
+        magnetic.ref.current = el
+      }}
+      onMouseMove={magnetic.onMouseMove}
+      onMouseLeave={magnetic.onMouseLeave}
+      className="group relative rounded-2xl p-6"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(32px)",
+        transition: "opacity 0.7s ease, transform 0.7s ease",
         transitionDelay: `${index * 100}ms`,
         background: "rgba(17,17,27,0.8)",
         border: `1px solid ${card.border}`,
         boxShadow: visible ? `0 0 30px ${card.glow}` : "none",
       }}
     >
-      {/* Hover glow overlay */}
       <div
         className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
         style={{
           background: `radial-gradient(circle at 50% 0%, ${card.glow}, transparent 70%)`,
         }}
       />
-
       <div className="relative z-10">
         <div
           className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-          style={{ background: `${card.glow}`, border: `1px solid ${card.border}` }}
+          style={{ background: card.glow, border: `1px solid ${card.border}` }}
         >
           <Icon size={20} style={{ color: card.color }} />
         </div>

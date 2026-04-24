@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { skills } from "../../data/skills"
+import { useMagneticHover } from "../../hooks/useMagneticHover"
 
 const logos = {
   Backend: (
@@ -54,6 +55,7 @@ const categoryStyle = {
 }
 
 function SkillCard({ category, items, index }) {
+  const magnetic = useMagneticHover(8)
   const ref = useRef(null)
   const [visible, setVisible] = useState(false)
 
@@ -66,43 +68,38 @@ function SkillCard({ category, items, index }) {
     return () => observer.disconnect()
   }, [])
 
-  const style = categoryStyle[category] || {
-    glow: "rgba(255,255,255,0.05)",
-    border: "rgba(255,255,255,0.1)",
-    text: "#fff",
-  }
+  const style = categoryStyle[category] || { glow: "...", border: "...", text: "#fff" }
   const logo = logos[category] || null
 
   return (
     <div
-      ref={ref}
-      className="group relative rounded-2xl p-6 transition-all duration-700"
+      ref={(el) => {
+        ref.current = el
+        magnetic.ref.current = el
+      }}
+      onMouseMove={magnetic.onMouseMove}
+      onMouseLeave={magnetic.onMouseLeave}
+      className="group relative rounded-2xl p-6"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(32px)",
+        transition: "opacity 0.7s ease, transform 0.7s ease",
         transitionDelay: `${index * 80}ms`,
         background: "rgba(17,17,27,0.8)",
         border: `1px solid ${style.border}`,
         boxShadow: visible ? `0 0 30px ${style.glow}` : "none",
       }}
     >
-      {/* Hover glow overlay */}
       <div
         className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-        style={{
-          background: `radial-gradient(circle at 50% 0%, ${style.glow}, transparent 70%)`,
-        }}
+        style={{ background: `radial-gradient(circle at 50% 0%, ${style.glow}, transparent 70%)` }}
       />
-
-      {/* Logo + title */}
       <div className="flex items-center gap-3 mb-5">
         <div className="shrink-0">{logo}</div>
         <p className="text-sm font-bold tracking-widest uppercase" style={{ color: style.text }}>
           {category}
         </p>
       </div>
-
-      {/* Items */}
       <div className="flex flex-wrap gap-2">
         {items.map((item) => (
           <span
