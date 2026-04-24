@@ -17,6 +17,10 @@ export const skills = [
   },
   {
     category: "Herramientas",
-    items: ["Git", "GitHub", "Vite", "VS Code", "Linux", "Vercel"],
+    items: ["Git", "GitHub", "Vite", "Linux", "Vercel"],
   },
+  {
+  category: "IA & Agentes",
+  items: ["LLMs", "Prompt Engineering", "Python AI", "APIs de IA"],
+}
 ]

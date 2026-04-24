@@ -48,19 +48,8 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gray-950">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-violet-950/40 via-gray-950 to-gray-950" />
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: "radial-gradient(circle, #6d28d9 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-      </div>
-
       <div
-        className={`relative z-10 transition-all duration-1000 ${
+        className={`relative z-10 w-full transition-all duration-1000 ${
           visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
@@ -83,7 +72,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <p className="max-w-xl text-gray-400 text-base md:text-lg leading-relaxed mb-10">
+        <p className="max-w-xl mx-auto text-gray-400 text-base md:text-lg leading-relaxed mb-10">
           Construyo aplicaciones que van del sensor al servidor y del servidor a
           la pantalla. Del hardware con Arduino hasta agentes de IA.
         </p>
