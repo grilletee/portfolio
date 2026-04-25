@@ -130,7 +130,7 @@ export default function Contact() {
         {/* Footer */}
         <div className="text-center text-gray-600 text-sm">
           <p>Diseñado y desarrollado por Guillermo Sánchez · 2026</p>
-          <p className="mt-1 font-mono">React · Vite · Tailwind CSS</p>
+          <p className="mt-1 font-mono">grillete.dev</p>
         </div>
 
       </div>

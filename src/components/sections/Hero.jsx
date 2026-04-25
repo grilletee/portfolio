@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Github, Mail, Linkedin } from "lucide-react"
+import { Github, Mail, Linkedin, Download } from "lucide-react"
 
 const roles = [
   "Full Stack Developer",
@@ -89,6 +89,14 @@ export default function Hero() {
             className="px-6 py-3 border border-gray-700 hover:border-violet-500 hover:text-violet-400 text-gray-300 font-medium rounded-lg transition-colors duration-200"
           >
             Contacto
+          </a>
+          <a
+              href="/cv-guillermo-sanchez.pdf"
+            download
+            className="px-6 py-3 border border-gray-700 hover:border-violet-500 hover:text-violet-400 text-gray-300 font-medium rounded-lg transition-colors duration-200 flex items-center gap-2 justify-center"
+          >
+            <Download size={16} />
+            Descargar CV
           </a>
         </div>
 
