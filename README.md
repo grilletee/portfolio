@@ -1,16 +1,50 @@
-# React + Vite
+# grillete.dev — Portfolio personal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio personal desarrollado desde cero con React, Vite y Tailwind CSS. Diseño moderno con animaciones propias sin librerías externas.
 
-Currently, two official plugins are available:
+🔗 **[grillete.dev](https://grillete.dev)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+- **React 19** + **Vite 8**
+- **Tailwind CSS 3**
+- **lucide-react** — iconografía
+- **Vercel** — deploy con CI/CD automático desde GitHub
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Características
 
-## Expanding the ESLint configuration
+- Aurora de fondo reactiva al cursor — canvas animado con WebGL
+- Magnetic hover en cards — efecto 3D sin librerías
+- Animaciones de entrada escalonadas con IntersectionObserver
+- Selector de proyectos interactivo con estado en React
+- Navbar sticky con detección de sección activa
+- Diseño responsive — mobile first
+- CV descargable en PDF
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Estructura
+
+```
+src/
+├── components/
+│   ├── sections/       # Hero, About, Projects, Skills, Contact
+│   ├── Aurora.jsx      # Fondo animado reactivo al cursor
+│   └── Navbar.jsx      # Navegación sticky
+├── data/
+│   ├── projects.js     # Datos de proyectos
+│   └── skills.js       # Stack por categorías
+└── hooks/
+    └── useMagneticHover.js  # Hook para efecto 3D en cards
+```
+
+## Desarrollo local
+
+```bash
+npm install
+npm run dev
+```
+
+## Contacto
+
+- grillete07@gmail.com
+- [linkedin.com/in/guillermo-sanchez-gutierrez](https://www.linkedin.com/in/guillermo-sanchez-gutierrez/)
+- [github.com/grilletee](https://github.com/grilletee)
